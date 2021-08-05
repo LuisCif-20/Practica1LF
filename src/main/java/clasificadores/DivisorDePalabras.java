@@ -18,15 +18,15 @@ public class DivisorDePalabras {
         this.cadenaingresada = cadenaingresada;
     }
 
-    public void dividirPalabras() {
+    public String[] dividirPalabras() {
         int espacios = this.verEspaciosVacios();
         System.out.println(espacios);
         int indice = 0;
         String[] palabras = new String[espacios];
         for (int i = 0; i < palabras.length; i++) {
             for (int j = indice; j < this.cadenaingresada.length(); j++) {
-                if (j == this.cadenaingresada.length()-1) {
-                    palabras[i] = this.cadenaingresada.substring(indice, j+1);
+                if (j == this.cadenaingresada.length() - 1) {
+                    palabras[i] = this.cadenaingresada.substring(indice, j + 1);
                     break;
                 }
                 if (this.cadenaingresada.substring(j, j + 1).equals(" ")) {
@@ -34,17 +34,24 @@ public class DivisorDePalabras {
                     indice = j + 1;
                     break;
                 } else if (this.esSimbolo(j, indice, palabras, i)) {
-                    palabras[i] = this.cadenaingresada.substring(indice, j);
-                    palabras[i + 1] = this.cadenaingresada.substring(j, j + 1);
-                    i++;
-                    indice = j + 1;
-                    break;
+                    if (j == 0) {
+                        palabras[i] = this.cadenaingresada.substring(j, j + 1);
+                        indice = j + 1;
+                        break;
+                    } else {
+                        palabras[i] = this.cadenaingresada.substring(indice, j);
+                        palabras[i + 1] = this.cadenaingresada.substring(j, j + 1);
+                        i++;
+                        indice = j + 1;
+                        break;
+                    }
                 }
             }
         }
         for (int i = 0; i < palabras.length; i++) {
             System.out.println(palabras[i]);
         }
+        return palabras;
     }
 
     public boolean esSimbolo(int j, int indice, String[] palabras, int i) {
@@ -64,12 +71,18 @@ public class DivisorDePalabras {
             } else {
                 for (int k = 0; k < simbolos.length; k++) {
                     if (this.cadenaingresada.substring(i, i + 1).equals(simbolos[k])) {
-                        espacios += 2;
+                        if (i == 0) {
+                            espacios++;
+                        } else {
+                            espacios += 2;
+
+                        }
                     }
                 }
             }
         }
         return espacios;
+
     }
 
     public String getCadenaingresada() {

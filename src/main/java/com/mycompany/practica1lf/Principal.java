@@ -14,7 +14,7 @@ import clasificadores.DivisorDePalabras;
 public class Principal {
     
     public static void main(String[] args) {
-        DivisorDePalabras clas = new DivisorDePalabras("adsfadsf 56523[adsf adsf;256 ghj ,");
+        DivisorDePalabras clas = new DivisorDePalabras("[ads,fadsf 56523[adsf adsf;256 ghj ,");
         clas.dividirPalabras();
     }
     
