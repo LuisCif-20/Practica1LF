@@ -5,6 +5,8 @@
  */
 package com.mycompany.practica1lf;
 
+import clasificadores.DivisorDePalabras;
+
 /**
  *
  * @author nroda
@@ -12,7 +14,8 @@ package com.mycompany.practica1lf;
 public class Principal {
     
     public static void main(String[] args) {
-        
+        DivisorDePalabras clas = new DivisorDePalabras("adsfadsf 56523[adsf adsf;256 ghj ,");
+        clas.dividirPalabras();
     }
     
 }
