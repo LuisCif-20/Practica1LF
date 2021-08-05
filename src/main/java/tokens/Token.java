@@ -11,4 +11,10 @@ package tokens;
  */
 public enum Token {
     
+    IDENTIFICADOR("Es identificador"),ENTERO("Es un entero"),DECIMAL("Es un decimal"),ERROR("Es un error"),SIMBOLO("Es un simbolo");
+    private final String identificador;
+    
+    private Token(String tipo){
+        this.identificador = tipo;
+    }
 }
