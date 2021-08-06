@@ -17,4 +17,10 @@ public enum Token {
     private Token(String tipo){
         this.identificador = tipo;
     }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+    
+    
 }
